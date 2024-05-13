@@ -16,7 +16,11 @@ public class MulticastChatServer {
             InetAdress group = InetAddress.getByName("225.4.5.6");
 
             //getByName - returns IP adress of given host
+        serverMulticastSocket.joinGroup(group);
+            System.out.println("joinGroup method is called...");
+            boolean infinite = true;
 
+            //Continually receives data and prints them
 
         }
     }
