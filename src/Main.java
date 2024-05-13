@@ -2,6 +2,8 @@ import java.net.*;
 public class MulticastChatServer {
     public static void main(String[] args) {
         throws Exception {
+
+        }
             //Default port number we are going to use
         int portnumber = 8080;
         if (args.length >= 1){
@@ -13,7 +15,7 @@ public class MulticastChatServer {
             System.out.println("MulticastSocket is created at port " + portnumber);
 
             //Determine the IP adress of a host, given the host name
-            InetAdress group = InetAddress.getByName("225.4.5.6");
+            InetAddress group = InetAddress.getByName("225.4.5.6");
 
             //getByName - returns IP adress of given host
         serverMulticastSocket.joinGroup(group);
@@ -24,8 +26,11 @@ public class MulticastChatServer {
         while (infinite) {
             byte buf[] = new byte[1024];
             DatagramPacket data = new DatagramPacket(buf, buf.length);
-
+            serverMulticastSocket.receive(data);
+            String msg = new String(data.getData()).trim();
+            System.out.println("Message received from client = " + msg);
         }
+        serverMulticastSocket.close();
 
         }
     }
