@@ -21,6 +21,11 @@ public class MulticastChatServer {
             boolean infinite = true;
 
             //Continually receives data and prints them
+        while (infinite) {
+            byte buf[] = new byte[1024];
+            DatagramPacket data = new DatagramPacket(buf, buf.length);
+
+        }
 
         }
     }
