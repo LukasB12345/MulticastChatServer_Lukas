@@ -10,7 +10,13 @@ public class MulticastChatServer {
 
         //Create a MulticastSocket
         MulticastSocket serverMulticastSocket = new MulticastSocket(portnumber);
-            System.out.println();
+            System.out.println("MulticastSocket is created at port " + portnumber);
+
+            //Determine the IP adress of a host, given the host name
+            InetAdress group = InetAddress.getByName("225.4.5.6");
+
+            //getByName - returns IP adress of given host
+
 
         }
     }
